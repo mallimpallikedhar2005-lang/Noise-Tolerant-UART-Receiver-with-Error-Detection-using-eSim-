@@ -1,0 +1,55 @@
+.title KiCad schematic
+U35 Net-_U1-Pad2_ D4 dac_bridge_1
+U34 Net-_U1-Pad1_ D3 dac_bridge_1
+U14 Net-_U1-Pad1_ Net-_U13-Pad2_ Net-_U12-Pad2_ Net-_U10-Pad2_ Net-_U1-Pad2_ unconnected-_U14-Pad6_ d_dff
+U15 Net-_U1-Pad2_ Net-_U13-Pad2_ Net-_U12-Pad2_ Net-_U10-Pad2_ Net-_U15-Pad5_ unconnected-_U15-Pad6_ d_dff
+U33 Net-_U13-Pad1_ D2 dac_bridge_1
+U29 Net-_U2-Pad1_ D1 dac_bridge_1
+U50 Net-_U23-Pad2_ Reset dac_bridge_1
+U19 Net-_U18-Pad5_ Net-_U13-Pad2_ Net-_U12-Pad2_ Net-_U10-Pad2_ Net-_U17-Pad1_ unconnected-_U19-Pad6_ d_dff
+U24 Net-_U17-Pad3_ Parity dac_bridge_1
+U18 Net-_U16-Pad5_ Net-_U13-Pad2_ Net-_U12-Pad2_ Net-_U10-Pad2_ Net-_U18-Pad5_ unconnected-_U18-Pad6_ d_dff
+U16 Net-_U15-Pad5_ Net-_U13-Pad2_ Net-_U12-Pad2_ Net-_U10-Pad2_ Net-_U16-Pad5_ unconnected-_U16-Pad6_ d_dff
+U26 GND Net-_U10-Pad2_ adc_bridge_1
+U17 Net-_U17-Pad1_ Net-_U17-Pad2_ Net-_U17-Pad3_ d_xnor
+U6 Net-_U4-Pad3_ Net-_U5-Pad3_ Net-_U17-Pad2_ d_xor
+U5 Net-_U3-Pad3_ Net-_U18-Pad5_ Net-_U5-Pad3_ d_xor
+U4 Net-_U2-Pad3_ Net-_U1-Pad3_ Net-_U4-Pad3_ d_xor
+U45 Net-_U17-Pad1_ Net-_U44-Pad1_ d_buffer
+U12 GND Net-_U12-Pad2_ adc_bridge_1
+U44 Net-_U44-Pad1_ D8 dac_bridge_1
+U32 Net-_U18-Pad5_ D7 dac_bridge_1
+U36 Net-_U15-Pad5_ D5 dac_bridge_1
+U37 Net-_U16-Pad5_ D6 dac_bridge_1
+U9 Clean_Signal Net-_U13-Pad2_ Net-_U12-Pad2_ Net-_U10-Pad2_ Net-_U2-Pad1_ unconnected-_U9-Pad6_ d_dff
+U7 Clean_Signal UART_Input dac_bridge_1
+U22 Net-_U2-Pad1_ Net-_U13-Pad2_ Net-_U12-Pad2_ Net-_U10-Pad2_ Net-_U13-Pad1_ unconnected-_U22-Pad6_ d_dff
+U28 Net-_U28-Pad1_ Net-_U11-Pad6_ Net-_U13-Pad2_ d_tristate
+U8 CLK_IN Net-_U28-Pad1_ adc_bridge_1
+V1 CLK_IN GND pulse
+U30 Net-_U13-Pad2_ clk_dff dac_bridge_1
+U20 Net-_U13-Pad2_ d_pulldown
+U10 GND Net-_U10-Pad2_ adc_bridge_1
+U2 Net-_U2-Pad1_ Net-_U13-Pad1_ Net-_U2-Pad3_ d_xor
+U3 Net-_U15-Pad5_ Net-_U16-Pad5_ Net-_U3-Pad3_ d_xor
+U1 Net-_U1-Pad1_ Net-_U1-Pad2_ Net-_U1-Pad3_ d_xor
+U13 Net-_U13-Pad1_ Net-_U13-Pad2_ Net-_U12-Pad2_ Net-_U10-Pad2_ Net-_U1-Pad1_ unconnected-_U13-Pad6_ d_dff
+U21 Clean_Signal Net-_U11-Pad4_ d_inverter
+U25 Net-_U11-Pad3_ d_pullup
+U11 unconnected-_U11-Pad1_ unconnected-_U11-Pad2_ Net-_U11-Pad3_ Net-_U11-Pad4_ Net-_U11-Pad5_ Net-_U11-Pad6_ unconnected-_U11-Pad7_ d_srlatch
+U38 Net-_U23-Pad2_ Net-_U11-Pad6_ Net-_U11-Pad5_ d_tristate
+U27 Net-_U11-Pad6_ d_pulldown
+U23 Net-_U23-Pad1_ Net-_U23-Pad2_ adc_bridge_1
+V2 Net-_U23-Pad1_ GND pulse(0 5 2.02m 1n 1n 1m 5m)
+U31 Net-_U11-Pad6_ Enable dac_bridge_1
+v5 Net-_X1-Pad2_ GND 2.5
+v6 Net-_X1-Pad7_ GND 5
+U41 Recovered_Signal Net-_U41-Pad2_ adc_bridge_1
+X1 unconnected-_X1-Pad1_ Net-_X1-Pad2_ Filtered_Out GND unconnected-_X1-Pad5_ Recovered_Signal Net-_X1-Pad7_ unconnected-_X1-Pad8_ lm_741
+U42 Net-_U41-Pad2_ Clean_Signal d_buffer
+C1 Filtered_Out GND 10n
+R1 Noisy_out Filtered_Out 1k
+Vv4 Net-_U40-Pad2_ GND pulse(0 5 0 1n 1n 5u 20u)
+U40 input_signal Net-_U40-Pad2_ Noisy_out summer
+Vv3 input_signal GND pwl(0u 5 100u 5 100.1u 0 204u 0 204.1u 5 308u 5 308.1u 5 412u 5 412.1u 0 516u 0 516.1u 5 620u 5 620.1u 0 724u 0 724.1u 5 828u 5 828.1u 0 932u 0 932.1u 0 1036u 0 1036.1u 5 1140u 5)
+.end

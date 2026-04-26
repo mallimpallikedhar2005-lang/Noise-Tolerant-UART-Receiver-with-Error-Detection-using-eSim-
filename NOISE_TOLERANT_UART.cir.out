@@ -1,0 +1,197 @@
+.title kicad schematic
+
+.include lm_741.sub
+* u35 net-_u1-pad2_ d4 dac_bridge_1
+* u34 net-_u1-pad1_ d3 dac_bridge_1
+* u14 net-_u1-pad1_ net-_u13-pad2_ net-_u12-pad2_ net-_u10-pad2_ net-_u1-pad2_ unconnected-_u14-pad6_ d_dff
+* u15 net-_u1-pad2_ net-_u13-pad2_ net-_u12-pad2_ net-_u10-pad2_ net-_u15-pad5_ unconnected-_u15-pad6_ d_dff
+* u33 net-_u13-pad1_ d2 dac_bridge_1
+* u29 net-_u2-pad1_ d1 dac_bridge_1
+* u50 net-_u23-pad2_ reset dac_bridge_1
+* u19 net-_u18-pad5_ net-_u13-pad2_ net-_u12-pad2_ net-_u10-pad2_ net-_u17-pad1_ unconnected-_u19-pad6_ d_dff
+* u24 net-_u17-pad3_ parity dac_bridge_1
+* u18 net-_u16-pad5_ net-_u13-pad2_ net-_u12-pad2_ net-_u10-pad2_ net-_u18-pad5_ unconnected-_u18-pad6_ d_dff
+* u16 net-_u15-pad5_ net-_u13-pad2_ net-_u12-pad2_ net-_u10-pad2_ net-_u16-pad5_ unconnected-_u16-pad6_ d_dff
+* u26 gnd net-_u10-pad2_ adc_bridge_1
+* u17 net-_u17-pad1_ net-_u17-pad2_ net-_u17-pad3_ d_xnor
+* u6 net-_u4-pad3_ net-_u5-pad3_ net-_u17-pad2_ d_xor
+* u5 net-_u3-pad3_ net-_u18-pad5_ net-_u5-pad3_ d_xor
+* u4 net-_u2-pad3_ net-_u1-pad3_ net-_u4-pad3_ d_xor
+* u45 net-_u17-pad1_ net-_u44-pad1_ d_buffer
+* u12 gnd net-_u12-pad2_ adc_bridge_1
+* u44 net-_u44-pad1_ d8 dac_bridge_1
+* u32 net-_u18-pad5_ d7 dac_bridge_1
+* u36 net-_u15-pad5_ d5 dac_bridge_1
+* u37 net-_u16-pad5_ d6 dac_bridge_1
+* u9 clean_signal net-_u13-pad2_ net-_u12-pad2_ net-_u10-pad2_ net-_u2-pad1_ unconnected-_u9-pad6_ d_dff
+* u7 clean_signal uart_input dac_bridge_1
+* u22 net-_u2-pad1_ net-_u13-pad2_ net-_u12-pad2_ net-_u10-pad2_ net-_u13-pad1_ unconnected-_u22-pad6_ d_dff
+* u28 net-_u28-pad1_ net-_u11-pad6_ net-_u13-pad2_ d_tristate
+* u8 clk_in net-_u28-pad1_ adc_bridge_1
+v1 clk_in gnd pulse(0 5 0 1n 1n 52u 104u)
+* u30 net-_u13-pad2_ clk_dff dac_bridge_1
+* u20 net-_u13-pad2_ d_pulldown
+* u10 gnd net-_u10-pad2_ adc_bridge_1
+* u2 net-_u2-pad1_ net-_u13-pad1_ net-_u2-pad3_ d_xor
+* u3 net-_u15-pad5_ net-_u16-pad5_ net-_u3-pad3_ d_xor
+* u1 net-_u1-pad1_ net-_u1-pad2_ net-_u1-pad3_ d_xor
+* u13 net-_u13-pad1_ net-_u13-pad2_ net-_u12-pad2_ net-_u10-pad2_ net-_u1-pad1_ unconnected-_u13-pad6_ d_dff
+* u21 clean_signal net-_u11-pad4_ d_inverter
+* u25 net-_u11-pad3_ d_pullup
+* u11 unconnected-_u11-pad1_ unconnected-_u11-pad2_ net-_u11-pad3_ net-_u11-pad4_ net-_u11-pad5_ net-_u11-pad6_ unconnected-_u11-pad7_ d_srlatch
+* u38 net-_u23-pad2_ net-_u11-pad6_ net-_u11-pad5_ d_tristate
+* u27 net-_u11-pad6_ d_pulldown
+* u23 net-_u23-pad1_ net-_u23-pad2_ adc_bridge_1
+v2 net-_u23-pad1_ gnd pulse(0 5 2.02m 1n 1n 1m 5m)
+* u31 net-_u11-pad6_ enable dac_bridge_1
+v5 net-_x1-pad2_ gnd 2.5
+v6 net-_x1-pad7_ gnd 5
+* u41 recovered_signal net-_u41-pad2_ adc_bridge_1
+x1 unconnected-_x1-pad1_ net-_x1-pad2_ filtered_out gnd unconnected-_x1-pad5_ recovered_signal net-_x1-pad7_ unconnected-_x1-pad8_ lm_741
+* u42 net-_u41-pad2_ clean_signal d_buffer
+c1 filtered_out gnd 10n
+r1 noisy_out filtered_out 1k
+vv4 net-_u40-pad2_ gnd pulse(0 5 0 1n 1n 5u 20u)
+* u40 input_signal net-_u40-pad2_ noisy_out summer
+vv3 input_signal gnd pwl(0u 5 100u 5 100.1u 0 204u 0 204.1u 5 308u 5 308.1u 5 412u 5 412.1u 0 516u 0 516.1u 5 620u 5 620.1u 0 724u 0 724.1u 5 828u 5 828.1u 0 932u 0 932.1u 0 1036u 0 1036.1u 5 1140u 5)
+a1 [net-_u1-pad2_ ] [d4 ] u35
+a2 [net-_u1-pad1_ ] [d3 ] u34
+a3 net-_u1-pad1_ net-_u13-pad2_ net-_u12-pad2_ net-_u10-pad2_ net-_u1-pad2_ unconnected-_u14-pad6_ u14
+a4 net-_u1-pad2_ net-_u13-pad2_ net-_u12-pad2_ net-_u10-pad2_ net-_u15-pad5_ unconnected-_u15-pad6_ u15
+a5 [net-_u13-pad1_ ] [d2 ] u33
+a6 [net-_u2-pad1_ ] [d1 ] u29
+a7 [net-_u23-pad2_ ] [reset ] u50
+a8 net-_u18-pad5_ net-_u13-pad2_ net-_u12-pad2_ net-_u10-pad2_ net-_u17-pad1_ unconnected-_u19-pad6_ u19
+a9 [net-_u17-pad3_ ] [parity ] u24
+a10 net-_u16-pad5_ net-_u13-pad2_ net-_u12-pad2_ net-_u10-pad2_ net-_u18-pad5_ unconnected-_u18-pad6_ u18
+a11 net-_u15-pad5_ net-_u13-pad2_ net-_u12-pad2_ net-_u10-pad2_ net-_u16-pad5_ unconnected-_u16-pad6_ u16
+a12 [gnd ] [net-_u10-pad2_ ] u26
+a13 [net-_u17-pad1_ net-_u17-pad2_ ] net-_u17-pad3_ u17
+a14 [net-_u4-pad3_ net-_u5-pad3_ ] net-_u17-pad2_ u6
+a15 [net-_u3-pad3_ net-_u18-pad5_ ] net-_u5-pad3_ u5
+a16 [net-_u2-pad3_ net-_u1-pad3_ ] net-_u4-pad3_ u4
+a17 net-_u17-pad1_ net-_u44-pad1_ u45
+a18 [gnd ] [net-_u12-pad2_ ] u12
+a19 [net-_u44-pad1_ ] [d8 ] u44
+a20 [net-_u18-pad5_ ] [d7 ] u32
+a21 [net-_u15-pad5_ ] [d5 ] u36
+a22 [net-_u16-pad5_ ] [d6 ] u37
+a23 clean_signal net-_u13-pad2_ net-_u12-pad2_ net-_u10-pad2_ net-_u2-pad1_ unconnected-_u9-pad6_ u9
+a24 [clean_signal ] [uart_input ] u7
+a25 net-_u2-pad1_ net-_u13-pad2_ net-_u12-pad2_ net-_u10-pad2_ net-_u13-pad1_ unconnected-_u22-pad6_ u22
+a26 net-_u28-pad1_ net-_u11-pad6_ net-_u13-pad2_ u28
+a27 [clk_in ] [net-_u28-pad1_ ] u8
+a28 [net-_u13-pad2_ ] [clk_dff ] u30
+a29 net-_u13-pad2_ u20
+a30 [gnd ] [net-_u10-pad2_ ] u10
+a31 [net-_u2-pad1_ net-_u13-pad1_ ] net-_u2-pad3_ u2
+a32 [net-_u15-pad5_ net-_u16-pad5_ ] net-_u3-pad3_ u3
+a33 [net-_u1-pad1_ net-_u1-pad2_ ] net-_u1-pad3_ u1
+a34 net-_u13-pad1_ net-_u13-pad2_ net-_u12-pad2_ net-_u10-pad2_ net-_u1-pad1_ unconnected-_u13-pad6_ u13
+a35 clean_signal net-_u11-pad4_ u21
+a36 net-_u11-pad3_ u25
+a37 unconnected-_u11-pad1_ unconnected-_u11-pad2_ net-_u11-pad3_ net-_u11-pad4_ net-_u11-pad5_ net-_u11-pad6_ unconnected-_u11-pad7_ u11
+a38 net-_u23-pad2_ net-_u11-pad6_ net-_u11-pad5_ u38
+a39 net-_u11-pad6_ u27
+a40 [net-_u23-pad1_ ] [net-_u23-pad2_ ] u23
+a41 [net-_u11-pad6_ ] [enable ] u31
+a42 [recovered_signal ] [net-_u41-pad2_ ] u41
+a43 net-_u41-pad2_ clean_signal u42
+a44 [input_signal net-_u40-pad2_ ] noisy_out u40
+* Schematic Name:                             dac_bridge_1, Ngspice Name: dac_bridge
+.model u35 dac_bridge(out_low=0 out_high=5 out_undef=5 input_load=1p t_rise=1n t_fall=1n ) 
+* Schematic Name:                             dac_bridge_1, Ngspice Name: dac_bridge
+.model u34 dac_bridge(out_low=0 out_high=5 out_undef=5 input_load=1p t_rise=1n t_fall=1n ) 
+* Schematic Name:                             d_dff, Ngspice Name: d_dff
+.model u14 d_dff(clk_delay=1n set_delay=1n reset_delay=1n ic=0 data_load=1p clk_load=1p set_load=1p reset_load=1p rise_delay=1n fall_delay=1n ) 
+* Schematic Name:                             d_dff, Ngspice Name: d_dff
+.model u15 d_dff(clk_delay=1n set_delay=1n reset_delay=1n ic=0 data_load=1p clk_load=1p set_load=1p reset_load=1p rise_delay=1n fall_delay=1n ) 
+* Schematic Name:                             dac_bridge_1, Ngspice Name: dac_bridge
+.model u33 dac_bridge(out_low=0 out_high=5 out_undef=5 input_load=1p t_rise=1n t_fall=1n ) 
+* Schematic Name:                             dac_bridge_1, Ngspice Name: dac_bridge
+.model u29 dac_bridge(out_low=0 out_high=5 out_undef=5 input_load=1p t_rise=1n t_fall=1n ) 
+* Schematic Name:                             dac_bridge_1, Ngspice Name: dac_bridge
+.model u50 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-9 t_fall=1.0e-9 ) 
+* Schematic Name:                             d_dff, Ngspice Name: d_dff
+.model u19 d_dff(clk_delay=1n set_delay=1n reset_delay=1n ic=0 data_load=1p clk_load=1p set_load=1p reset_load=1p rise_delay=1n fall_delay=1n ) 
+* Schematic Name:                             dac_bridge_1, Ngspice Name: dac_bridge
+.model u24 dac_bridge(out_low=0 out_high=5 out_undef=5 input_load=1p t_rise=1n t_fall=1n ) 
+* Schematic Name:                             d_dff, Ngspice Name: d_dff
+.model u18 d_dff(clk_delay=1n set_delay=1n reset_delay=1n ic=0 data_load=1p clk_load=1p set_load=1p reset_load=1p rise_delay=1n fall_delay=1n ) 
+* Schematic Name:                             d_dff, Ngspice Name: d_dff
+.model u16 d_dff(clk_delay=1n set_delay=1n reset_delay=1n ic=0 data_load=1p clk_load=1p set_load=1p reset_load=1p rise_delay=1n fall_delay=1n ) 
+* Schematic Name:                             adc_bridge_1, Ngspice Name: adc_bridge
+.model u26 adc_bridge(in_low=1 in_high=2 rise_delay=1n fall_delay=1n ) 
+* Schematic Name:                             d_xnor, Ngspice Name: d_xnor
+.model u17 d_xnor(rise_delay=1n fall_delay=1n input_load=1p ) 
+* Schematic Name:                             d_xor, Ngspice Name: d_xor
+.model u6 d_xor(rise_delay=1n fall_delay=1n input_load=1p ) 
+* Schematic Name:                             d_xor, Ngspice Name: d_xor
+.model u5 d_xor(rise_delay=1n fall_delay=1n input_load=1p ) 
+* Schematic Name:                             d_xor, Ngspice Name: d_xor
+.model u4 d_xor(rise_delay=1n fall_delay=1n input_load=1p ) 
+* Schematic Name:                             d_buffer, Ngspice Name: d_buffer
+.model u45 d_buffer(rise_delay=1n fall_delay=1n input_load=1p ) 
+* Schematic Name:                             adc_bridge_1, Ngspice Name: adc_bridge
+.model u12 adc_bridge(in_low=1 in_high=2 rise_delay=1n fall_delay=1n ) 
+* Schematic Name:                             dac_bridge_1, Ngspice Name: dac_bridge
+.model u44 dac_bridge(out_low=0 out_high=5 out_undef=5 input_load=1p t_rise=1n t_fall=1n ) 
+* Schematic Name:                             dac_bridge_1, Ngspice Name: dac_bridge
+.model u32 dac_bridge(out_low=0 out_high=5 out_undef=5 input_load=1p t_rise=1n t_fall=1n ) 
+* Schematic Name:                             dac_bridge_1, Ngspice Name: dac_bridge
+.model u36 dac_bridge(out_low=0 out_high=5 out_undef=5 input_load=1p t_rise=1n t_fall=1n ) 
+* Schematic Name:                             dac_bridge_1, Ngspice Name: dac_bridge
+.model u37 dac_bridge(out_low=0 out_high=5 out_undef=5 input_load=1p t_rise=1n t_fall=1n ) 
+* Schematic Name:                             d_dff, Ngspice Name: d_dff
+.model u9 d_dff(clk_delay=1n set_delay=1n reset_delay=1n ic=0 data_load=1p clk_load=1p set_load=1p reset_load=1p rise_delay=1n fall_delay=1n ) 
+* Schematic Name:                             dac_bridge_1, Ngspice Name: dac_bridge
+.model u7 dac_bridge(out_low=0 out_high=5 out_undef=0.5 input_load=1p t_rise=1n t_fall=1n ) 
+* Schematic Name:                             d_dff, Ngspice Name: d_dff
+.model u22 d_dff(clk_delay=1n set_delay=1n reset_delay=1n ic=0 data_load=1p clk_load=1p set_load=1p reset_load=1p rise_delay=1n fall_delay=1n ) 
+* Schematic Name:                             d_tristate, Ngspice Name: d_tristate
+.model u28 d_tristate(delay=1n input_load=1p enable_load=1p ) 
+* Schematic Name:                             adc_bridge_1, Ngspice Name: adc_bridge
+.model u8 adc_bridge(in_low=2.4 in_high=2.6 rise_delay=1n fall_delay=1n ) 
+* Schematic Name:                             dac_bridge_1, Ngspice Name: dac_bridge
+.model u30 dac_bridge(out_low=0 out_high=5 out_undef=0.5 input_load=1p t_rise=1n t_fall=1n ) 
+* Schematic Name:                             d_pulldown, Ngspice Name: d_pulldown
+.model u20 d_pulldown(load=0 ) 
+* Schematic Name:                             adc_bridge_1, Ngspice Name: adc_bridge
+.model u10 adc_bridge(in_low=1 in_high=2 rise_delay=1n fall_delay=1n ) 
+* Schematic Name:                             d_xor, Ngspice Name: d_xor
+.model u2 d_xor(rise_delay=1n fall_delay=1n input_load=1p ) 
+* Schematic Name:                             d_xor, Ngspice Name: d_xor
+.model u3 d_xor(rise_delay=1n fall_delay=1n input_load=1p ) 
+* Schematic Name:                             d_xor, Ngspice Name: d_xor
+.model u1 d_xor(rise_delay=1n fall_delay=1n input_load=1p ) 
+* Schematic Name:                             d_dff, Ngspice Name: d_dff
+.model u13 d_dff(clk_delay=1n set_delay=1n reset_delay=1n ic=0 data_load=1p clk_load=1p set_load=1p reset_load=1p rise_delay=1n fall_delay=1n ) 
+* Schematic Name:                             d_inverter, Ngspice Name: d_inverter
+.model u21 d_inverter(rise_delay=1n fall_delay=1n input_load=1p ) 
+* Schematic Name:                             d_pullup, Ngspice Name: d_pullup
+.model u25 d_pullup(load=5 ) 
+* Schematic Name:                             d_srlatch, Ngspice Name: d_srlatch
+.model u11 d_srlatch(sr_delay=1n enable_delay=1n set_delay=1n reset_delay=1n ic=0 sr_load=1p enable_load=1p set_load=1p reset_load=1p rise_delay=10n fall_delay=10n ) 
+* Schematic Name:                             d_tristate, Ngspice Name: d_tristate
+.model u38 d_tristate(delay=1.0e-9 input_load=1.0e-12 enable_load=1.0e-12 ) 
+* Schematic Name:                             d_pulldown, Ngspice Name: d_pulldown
+.model u27 d_pulldown(load=0 ) 
+* Schematic Name:                             adc_bridge_1, Ngspice Name: adc_bridge
+.model u23 adc_bridge(in_low=1 in_high=2 rise_delay=1n fall_delay=1n ) 
+* Schematic Name:                             dac_bridge_1, Ngspice Name: dac_bridge
+.model u31 dac_bridge(out_low=0 out_high=5 out_undef=5 input_load=1p t_rise=1n t_fall=1n ) 
+* Schematic Name:                             adc_bridge_1, Ngspice Name: adc_bridge
+.model u41 adc_bridge(in_low=1.5 in_high=2 rise_delay=1n fall_delay=1n ) 
+* Schematic Name:                             d_buffer, Ngspice Name: d_buffer
+.model u42 d_buffer(rise_delay=1n fall_delay=1n input_load=1p ) 
+* Schematic Name:                             summer, Ngspice Name: summer
+.model u40 summer(in_offset=[0 0 ] in_gain=[1 0.1 ] out_gain=1 out_offset=0 ) 
+.tran 0.5e-06 5e-03 0e-00
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+.endc
+.end
